@@ -3,7 +3,7 @@ FROM php:8.1-fpm-alpine
 ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions /usr/local/bin/
 
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
-    install-php-extensions gd xdebug pdo_mysql mysqli
+    install-php-extensions gd xdebug pdo_mysql mysqli mongodb
     
 
 # Install Composer

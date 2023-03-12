@@ -9,6 +9,7 @@
         "ext-iconv": "*",
         "doctrine/doctrine-bundle": "^2.8",
         "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/mongodb-odm-bundle": "^4.5",
         "doctrine/orm": "^2.14",
         "symfony/console": "6.2.*",
         "symfony/dotenv": "6.2.*",
@@ -55,11 +56,9 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
-            "chown -R root:root var/cache/",
             "@auto-scripts"
         ],
         "post-update-cmd": [
-            "chown -R root:root var/cache/",
             "@auto-scripts"
         ]
     },

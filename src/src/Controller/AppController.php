@@ -2,14 +2,16 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use App\Document\Product;
+use Doctrine\ODM\MongoDB\DocumentManager;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AppController extends AbstractController
 {
     #[Route('/', name: 'root')]
-    public function index(): JsonResponse
+    public function index(DocumentManager $dm): JsonResponse
     {
         $a = 2;
         $b = 5;
@@ -18,10 +20,21 @@ class AppController extends AbstractController
         $c = $d * $d;
         $a = $c / $a;
 
+        $product = new Product();
+        $product
+            ->setName('A Foo Bar')
+            ->setPrice('19.99')
+        ;
+
+        $dm->persist($product);
+        $dm->flush();
+
+
         return $this->json([
             'message' => 'Welcome to your new controller!',
             'path' => 'src/Controller/AppController.php',
             'val' => $a,
+            'Created product id ' => $product->getId()
         ]);
     }
 }
