@@ -25,14 +25,27 @@ services:
     depends_on:
       - php-fpm
 
-  # database:
-  #   container_name: fx_database
-  #   build:
-  #     context: ./database
-  #   environment:
-  #     - MYSQL_DATABASE=mydb
-  #     - MYSQL_USER=myuser
-  #     - MYSQL_PASSWORD=secret
-  #     - MYSQL_ROOT_PASSWORD=docker
-  #   volumes:
-  #     - ./database/data.sql:/docker-entrypoint-initdb.d/data.sql
+  mongo-db:
+    container_name: sf6_mvp_mongo_db
+    build:
+      context: ./mongodb
+    environment:
+      - MONGO_INITDB_DATABASE=mydb
+      - MONGO_INITDB_ROOT_USERNAME=myuser
+      - MONGO_INITDB_ROOT_PASSWORD=docker
+    ports:
+      - "27017:27017"
+    hostname: mongodb
+    volumes:
+      - ./mongodb/mongod.conf:/etc/mongod.conf
+      - ./mongodb/logs:/var/log/mongodb/
+      - ./mongodb/db:/var/lib/mongodb
+
+  mongo-gui:
+    container_name: sf6_mvp_mongo_gui
+    image: ugleiton/mongo-gui
+    restart: always
+    ports:
+      - "4321:4321"
+    environment:
+      - MONGO_URL=mongodb://myuser:docker@sf6_mvp_mongo_db:27017

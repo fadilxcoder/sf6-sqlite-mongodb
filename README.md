@@ -3,7 +3,15 @@
 - URL : `http://127.0.0.1:8881/`
 - Profiler : `http://127.0.0.1:8881/_profiler`
 - Permission issues on cache repo : `chown -R root:root var/cache/`
-- `php.ini`
+- MongoUI : `http://localhost:4321/`
+
+## MongoDB
+
+- `docker-compose.yml` - added `mongo-db` & `mongo-gui`
+
+--- 
+## Xdebug / VS Code
+
 
 ```
 zend_extension=xdebug

@@ -1,3 +1,5 @@
 /.c9
 .idea/
 php_error_log
+/docker/mongodb/db/
+/docker/mongodb/logs/
