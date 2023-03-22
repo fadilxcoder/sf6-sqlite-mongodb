@@ -20,14 +20,26 @@ class AppController extends AbstractController
         $c = $d * $d;
         $a = $c / $a;
 
+        
         $product = new Product();
         $product
             ->setName('A Foo Bar')
             ->setPrice('19.99')
         ;
-
         $dm->persist($product);
         $dm->flush();
+        
+
+        // dd($product = $dm->getRepository(Product::class)->find('640dac4d2914380f080ec1d1'));
+
+        /*
+        $productRepository = $dm->getRepository(Product::class);
+        $queryBuilder = $productRepository->createQueryBuilder();
+        $queryBuilder->remove()->getQuery()->execute();
+        $dm->clear();
+
+        die;
+        */
 
 
         return $this->json([
