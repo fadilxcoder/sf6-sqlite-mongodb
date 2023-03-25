@@ -11,6 +11,8 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/mongodb-odm-bundle": "^4.5",
         "doctrine/orm": "^2.14",
+        "fadilxcoder/in-memory-dba": "dev-master",
+        "fakerphp/faker": "^1.21",
         "symfony/console": "6.2.*",
         "symfony/dotenv": "6.2.*",
         "symfony/flex": "^2",
@@ -71,5 +73,11 @@
             "allow-contrib": false,
             "require": "6.2.*"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./pak8ge/in-memory-dba"
+        }
+    ]
 }
