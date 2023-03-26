@@ -32,11 +32,14 @@ class DbaCacheInitCommand extends Command
         $db = new InMemoryDatabase();
         $cache = $db->initialize();
 
-        foreach (range(1, 1000) as $value) {
+        foreach (range(1, 5) as $value) {
+            $uuid  = $faker->uuid();
+            # Insert values into cache
             $cache->put(
-                $value, 
+                $uuid, 
                 [
-                    'uuid' => $faker->uuid(),
+                    'idx' => $value,
+                    'uuid' => $uuid,
                     'fullname' =>  $faker->name(),
                     'email' => $faker->safeEmail(),
                     'phone' => $faker->phoneNumber(),
@@ -47,12 +50,29 @@ class DbaCacheInitCommand extends Command
                 ]
             );
             $output->writeln([
-                'Account #' . $value . '✅'
+                'Account UUID ' . $uuid . '✅'
             ]);
         }
 
-        dump($cache->get(786));
-        # $db->truncate();
+        # Update values into cache
+        $content = $cache->get($uuid);
+        $newArr = [
+            'country_code' => $faker->countryCode(),
+            'currency_code' => $faker->currencyCode(),
+        ];
+        $cache->put($uuid, array_merge($content, $newArr));
+
+        dump(
+            $uuid,
+            $content,
+            $cache->has($uuid),
+            $cache->get($uuid),
+            $cache->delete($uuid),
+            $cache->get($uuid)
+        );
+
+        # Remove cache file
+        $db->truncate();
 
         return Command::SUCCESS;
     }
