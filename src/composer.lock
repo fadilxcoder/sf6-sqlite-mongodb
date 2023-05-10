@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1da1601233a67c1bba7ccd82e9d11989",
+    "content-hash": "83d407f95d6733239254a5e8582e19e5",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1591,11 +1591,17 @@
         },
         {
             "name": "fadilxcoder/in-memory-dba",
-            "version": "master",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fadilxcoder/dba-php-packagist.git",
+                "reference": "8640667056456cb313aeb8ef40bde115bf19c19b"
+            },
             "dist": {
-                "type": "path",
-                "url": "./pak8ge/in-memory-dba",
-                "reference": "063c51dc51cdd3866dc344664412a34a8021917c"
+                "type": "zip",
+                "url": "https://api.github.com/repos/fadilxcoder/dba-php-packagist/zipball/8640667056456cb313aeb8ef40bde115bf19c19b",
+                "reference": "8640667056456cb313aeb8ef40bde115bf19c19b",
+                "shasum": ""
             },
             "require": {
                 "php": ">=7.2.0"
@@ -1606,20 +1612,22 @@
                     "InMemory\\Dba\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "mit"
             ],
             "authors": [
                 {
-                    "name": "Fadil",
-                    "email": "fadil@xcoder.dvlpr",
-                    "homepage": "https://github.com/fadilxcoder"
+                    "name": "fadilxcoder",
+                    "email": "fadilxcoder@gmail.com"
                 }
             ],
             "description": "In Memory Database Abstraction Layer",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/fadilxcoder/dba-php-packagist/issues",
+                "source": "https://github.com/fadilxcoder/dba-php-packagist/tree/1.0.0"
+            },
+            "time": "2023-03-26T11:07:00+00:00"
         },
         {
             "name": "fakerphp/faker",
@@ -5167,9 +5175,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "fadilxcoder/in-memory-dba": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -41,11 +41,11 @@ services:
       - ./mongodb/logs:/var/log/mongodb/
       - ./mongodb/db:/var/lib/mongodb
 
-  mongo-gui:
-    container_name: sf6_mvp_mongo_gui
-    image: ugleiton/mongo-gui
-    restart: always
-    ports:
-      - "4321:4321"
-    environment:
-      - MONGO_URL=mongodb://myuser:docker@sf6_mvp_mongo_db:27017
+  # mongo-gui:
+  #   container_name: sf6_mvp_mongo_gui
+  #   image: ugleiton/mongo-gui
+  #   restart: always
+  #   ports:
+  #     - "4321:4321"
+  #   environment:
+  #     - MONGO_URL=mongodb://myuser:docker@sf6_mvp_mongo_db:27017
