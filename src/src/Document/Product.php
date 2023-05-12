@@ -15,6 +15,11 @@ class Product
     protected $id;
 
     /**
+     * @MongoDB\Field(type="integer")
+     */
+    protected $idx;
+
+    /**
      * @MongoDB\Field(type="string")
      */
     protected $name;
@@ -40,6 +45,24 @@ class Product
     public function setId($id): self
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idx
+     */
+    public function getIdx()
+    {
+        return $this->idx;
+    }
+
+    /**
+     * Set the value of idx
+     */
+    public function setIdx($idx): self
+    {
+        $this->idx = $idx;
 
         return $this;
     }

@@ -14,20 +14,17 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'dba:cache:init',
-    description: 'Add a short description for your command',
+    description: 'Populate DBA cache with faker',
 )]
 class DbaCacheInitCommand extends Command
 {
     protected function configure(): void
     {
-        $this
-            ->addArgument('arg1', InputArgument::OPTIONAL, 'Argument description')
-            ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
-        ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $io = new SymfonyStyle($input, $output);
         $faker = Faker::create();
         $db = new InMemoryDatabase();
         $cache = $db->initialize();
@@ -73,6 +70,8 @@ class DbaCacheInitCommand extends Command
 
         # Remove cache file
         $db->truncate();
+
+        $io->success('DBA works fine.');
 
         return Command::SUCCESS;
     }

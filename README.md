@@ -5,6 +5,11 @@
 - Permission issues on cache repo : `chown -R root:root var/cache/`
 - Forcing cache clear : `rm -rf ./src/var/cache/dev/`
 - MongoUI : `http://localhost:4321/`
+- CLI
+- - `php bin/console dba:cache:init`
+- - `php bin/console app:mongo:init clear`
+- - `php bin/console app:mongo:find`
+- - `php bin/console app:mongo:find 645e6f7d0429d100de0c5a77`
 
 ## MongoDB
 
@@ -30,7 +35,6 @@ public function index(DocumentManager $dm): JsonResponse
 
 ## DBA
 
-- CLI : `php bin/console dba:cache:init`
 - Pak8ge : `https://github.com/fadilxcoder/dba-php-packagist.git`
 
 --- 

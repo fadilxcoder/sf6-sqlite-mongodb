@@ -4,7 +4,11 @@ ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/mas
 
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
     install-php-extensions gd xdebug pdo_mysql mysqli mongodb dba
-    
+
+# Setting permission for SF cache issue
+RUN echo http://dl-2.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories
+RUN apk --no-cache add shadow && usermod -u 1000 www-data
+RUN usermod -u 1000 www-data
 
 # Install Composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
