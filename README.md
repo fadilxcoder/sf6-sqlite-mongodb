@@ -10,6 +10,7 @@
 - - `php bin/console app:mongo:init clear`
 - - `php bin/console app:mongo:find`
 - - `php bin/console app:mongo:find 645e6f7d0429d100de0c5a77`
+- - `php bin/console app:graphql:query`
 
 ## MongoDB
 
